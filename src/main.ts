@@ -5,6 +5,7 @@ import { json, urlencoded } from 'body-parser';
 import { ApplicationLogger } from './framework/logger/application.logger';
 import { useSwagger } from './config/swagger';
 import { port } from './config/environments';
+import { printLaunch } from './framework/logger/print-launch';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -21,5 +22,6 @@ async function bootstrap() {
   );
   useSwagger(app);
   await app.listen(port);
+  printLaunch();
 }
 bootstrap();
