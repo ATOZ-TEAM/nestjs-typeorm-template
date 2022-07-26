@@ -3,7 +3,8 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { json, urlencoded } from 'body-parser';
 import { ApplicationLogger } from './framework/logger/application.logger';
-import { useSwagger } from './framework/swagger';
+import { useSwagger } from './config/swagger';
+import { port } from './config/environments';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -19,6 +20,6 @@ async function bootstrap() {
     }),
   );
   useSwagger(app);
-  await app.listen(3000);
+  await app.listen(port);
 }
 bootstrap();

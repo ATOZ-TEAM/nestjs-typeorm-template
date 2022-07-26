@@ -31,3 +31,13 @@ export enum APP_ENV {
 export const appEnv: APP_ENV = (process.env.NODE_ENV as APP_ENV) || APP_ENV.DEV;
 export const port = process.env.PORT || 8000;
 export const timeZone = process.env.TZ;
+
+export const db = {
+  dialect: process.env.DB_DIALECT,
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
+  database: process.env.DB_DATABASE,
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  logging: process.env.DB_LOGGING === 'true',
+};
