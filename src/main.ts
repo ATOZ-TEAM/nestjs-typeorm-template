@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { json, urlencoded } from 'body-parser';
 import { ApplicationLogger } from './framework/logger/application.logger';
+import { useSwagger } from './framework/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -17,6 +18,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
+  useSwagger(app);
   await app.listen(3000);
 }
 bootstrap();
