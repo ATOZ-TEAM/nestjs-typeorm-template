@@ -1,4 +1,4 @@
-import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { DataSourceOptions } from 'typeorm';
 import { appEnv, db } from './environments';
 
 type Dialect = 'mysql' | 'mariadb' | 'postgres';
@@ -7,7 +7,7 @@ const { dialect, host, port, username, password, database } = db;
 
 const serverEnv = ['staging', 'production'];
 
-export const typeORMConfig: TypeOrmModuleOptions = {
+const typeORMConfig: DataSourceOptions = {
   type: dialect as Dialect,
   host,
   port,
@@ -27,3 +27,5 @@ export const typeORMConfig: TypeOrmModuleOptions = {
   // seeds: ['dist/src/db/seeds/**/*.js'],
   // factories: ['dist/src/db/factories/**/*{.ts,.js}'],
 };
+
+export default typeORMConfig;

@@ -29,7 +29,7 @@ export enum APP_ENV {
 }
 
 export const appEnv: APP_ENV = (process.env.NODE_ENV as APP_ENV) || APP_ENV.DEV;
-export const port = process.env.PORT || 8000;
+export const port = parseInt(process.env.PORT) || 8000;
 export const timeZone = process.env.TZ;
 
 export const db = {

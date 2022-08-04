@@ -10,7 +10,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "start:dev": "nest start --watch",
+    "start:dev": "rm -rf ./dist & nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -18,7 +18,14 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "db:create": "bash tasks/database.sh create",
+    "db:drop": "bash tasks/database.sh drop",
+    "db:console": "bash tasks/database.sh console -d",
+    "migration:create": "bash tasks/migration.sh create",
+    "migration:generate": "bash tasks/migration.sh generate",
+    "migration:run": "bash tasks/migration.sh run",
+    "migration:revert": "bash tasks/migration.sh revert"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
