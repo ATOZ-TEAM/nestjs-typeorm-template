@@ -31,6 +31,8 @@ export enum APP_ENV {
 export const appEnv: APP_ENV = (process.env.NODE_ENV as APP_ENV) || APP_ENV.DEV;
 export const port = parseInt(process.env.PORT) || 8000;
 export const timeZone = process.env.TZ;
+export const jwtSecret = process.env.JWT_SECRET;
+export const jwtExpiresIn = process.env.JWT_EXPRIRE_IN;
 
 export const db = {
   dialect: process.env.DB_DIALECT,

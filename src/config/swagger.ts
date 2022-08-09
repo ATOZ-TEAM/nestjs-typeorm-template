@@ -5,7 +5,7 @@ import { appEnv } from './environments';
 export function useSwagger(app: INestApplication) {
   const swaggerConfig = new DocumentBuilder()
     .addBearerAuth({ in: 'header', type: 'http' })
-    .setTitle(`Peopet api [${appEnv}]`)
+    .setTitle(`Service api [${appEnv}]`)
     .setVersion('1.0.0')
     .setDescription(``)
     .build();
